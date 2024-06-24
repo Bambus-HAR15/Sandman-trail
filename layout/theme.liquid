@@ -1,6 +1,8 @@
 <!doctype html>
 <html class="no-js no-touch" lang="{{ request.locale.iso_code }}">
   <head>
+
+    
     
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -19,8 +21,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   gtag('config', 'G-HC6DFQ3DN7');
 </script>
-
-
 
     <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -215,7 +215,119 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <body class="template-{{ template.name }}" data-instant-allow-query-string {% if settings.reduce_animations %}data-reduce-animations{% endif %}>
 
+    <div id="cookie-consent-popup">
+      <div id="section">
+      
+            <div class="section show">
+              <div class="head">
+                  <i class="bx bx-cookie icon"></i>
+                  <h2 style="font-size:25px; font-family: sans-serif;">Cookies Consent</h2>
+                </div>
 
+              <p style="font-size: 15px;text-align:justify; margin-right: 50px; margin-left: 50px; margin-bottom: 20px; font-family:Verdana, Geneva, Tahoma, sans-serif; color: #333;font-weight: 400;">We use different types of cookies to improve your experience on our website. Click on the categories below to learn more about their purposes. You can choose which types of cookies you want to allow. Remember that disabling cookies may impact your experience on the website.</p>
+          </div>
+          <div class="leftDiv">
+              <div class="section">
+                  <h4 style="color: black;">Your Cookie Settings</h4>
+                  <p style="font-size: 13px; color: #333;font-weight: 400; font-family: sans-serif;">We use different types of cookies to improve your experience on our website. Click on the categories below to learn more about their purposes. You can choose which types of cookies you want to allow. Remember that disabling cookies may impact your experience on the website.</p>
+                  <label class="mcui-checkbox">
+                      <input type="checkbox" id="essential-cookies">
+                      <div>
+                          <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+                              <title>checkmark-circle</title>
+                              <polyline points="7.57 15.87 12.62 21.07 23.43 9.93"></polyline>
+                          </svg>
+                      </div>
+                      <div class="Adj-title" id="essential" style="color: #034bf1;">Essential (technical) cookies</div>
+                  </label>
+                  <div class="content">Necessary (technical) cookies help make a website usable by enabling basic functions like view navigation and access to secure areas of the website. Without these cookies the website cannot function properly.</div>
+
+                  <label class="mcui-checkbox">
+                      <input type="checkbox">
+                      <div>
+                          <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+                              <title>checkmark-circle</title>
+                              <polyline points="7.57 15.87 12.62 21.07 23.43 9.93"></polyline>
+                          </svg>
+                      </div>
+                      <div class="Adj-title" id="statistics">Statistics (analytical cookies)</div>
+                  </label>
+                  <div class="content">These cookies help us understand how visitors interact with websites by collecting and reporting information anonymously.</div>
+
+                  <label class="mcui-checkbox">
+                      <input type="checkbox">
+                      <div>
+                          <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+                              <title>checkmark-circle</title>
+                              <polyline points="7.57 15.87 12.62 21.07 23.43 9.93"></polyline>
+                          </svg>
+                      </div>
+                      <div class="Adj-title" id="marketing">Marketing Cookies</div>
+                  </label>
+                  <div class="content">Marketing cookies are used to track visitors across websites to show things that are relevant and engaging to each user, making them more valuable to publishers and third-party advertisers.</div>
+              </div>
+          </div>
+
+          <div class="Active-btn">
+              <button id="accept-cookies" class="btn-sty option active">Accept all Cookies</button>
+              <button id="adjust-settings" class="btn-sty option">Adjust settings</button>
+              <button id="refuse-cookies" class="btn-sty">Refuse Cookies</button>
+              <button id="accept-selected" class="btn-sty option Accept" style="display: none; margin-left: 135px;">Accept selected</button>
+          </div>
+      </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var body = document.body;
+
+        if (!document.cookie.includes("cookies_accepted=true")) {
+            document.getElementById("cookie-consent-popup").style.display = "flex";
+            body.classList.add("hidden-content");
+        } else {
+            body.classList.remove("hidden-content");
+        }
+
+        // Ensure Essential cookies checkbox is always checked and disabled
+        var essentialCookiesCheckbox = document.getElementById('essential-cookies');
+        essentialCookiesCheckbox.checked = true;
+        essentialCookiesCheckbox.disabled = true;
+
+        document.getElementById("accept-cookies").addEventListener("click", function () {
+            document.cookie = "cookies_accepted=true; path=/; max-age=" + 60 * 60 * 24 * 365;
+            document.getElementById("cookie-consent-popup").style.display = "none";
+            body.classList.remove("hidden-content");
+        });
+
+        document.getElementById("adjust-settings").addEventListener("click", function () {
+            document.querySelector(".section.show").classList.remove("show");
+            document.querySelectorAll(".section")[1].classList.add("show");
+            document.getElementById("accept-cookies").style.display = "none";
+            document.getElementById("refuse-cookies").style.display = "none";
+            document.getElementById("adjust-settings").style.display = "none";
+            document.getElementById("accept-selected").style.display = "inline-block";
+        });
+
+        document.getElementById("refuse-cookies").addEventListener("click", function () {
+            document.cookie = "cookies_accepted=false; path=/; max-age=" + 60 * 60 * 24 * 365;
+            document.getElementById("cookie-consent-popup").style.display = "none";
+            body.classList.remove("hidden-content");
+        });
+
+        document.getElementById("accept-selected").addEventListener("click", function () {
+            document.cookie = "cookies_accepted=selected; path=/; max-age=" + 60 * 60 * 24 * 365;
+            document.getElementById("cookie-consent-popup").style.display = "none";
+            body.classList.remove("hidden-content");
+        });
+
+        document.querySelectorAll(".option").forEach(option => {
+            option.addEventListener("click", function () {
+                document.querySelectorAll(".option").forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+    });
+</script>
 
     
     <!-- Google Tag Manager (noscript) -->
