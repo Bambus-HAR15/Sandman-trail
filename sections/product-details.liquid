@@ -1,0 +1,187 @@
+{% assign current_url = product.url | replace: '/' | replace: 'products' %}    
+
+
+{% if current_url == 'latexmatratze' or current_url == 'latexmatratze-80x200' or current_url == 'latexmatratze-90x200' or current_url == 'latexmatratze-100x200' or current_url == 'latexmatratze-140x200' or current_url == 'latexmatratze-160x200'  or current_url == 'latexmatratze-180x200'  or current_url == 'latexmatratze-200x200' %}
+
+    {% section 'liara-latexmatratze' %}  
+
+{% elsif current_url == 'gelmatratze' or current_url == 'gelmatratze-80x200' or current_url == 'gelmatratze-90x200' or current_url == 'gelmatratze-100x200' or current_url == 'gelmatratze-140x200' or current_url == 'gelmatratze-160x200'  or current_url == 'gelmatratze-180x200'  or current_url == 'gelmatratze-200x200' %}
+
+    {% section 'gelmatratze' %}  
+
+{% elsif current_url == 'kaltschaummatratze' or current_url == 'kaltschaummatratze-80x200' or current_url == 'kaltschaummatratze-90x200' or current_url == 'kaltschaummatratze-100x200' or current_url == 'kaltschaummatratze-140x200' or current_url == 'kaltschaummatratze-160x200'  or current_url == 'kaltschaummatratze-180x200'  or current_url == 'kaltschaummatratze-200x200' %}
+
+    {% section 'kaltschaummatratze' %}  
+
+{% elsif current_url == 'matratzenauflage' or current_url contains "visco-topper-doppeltuchbezug" %}
+
+    {% section 'matratzenauflage' %}  
+
+{% elsif current_url == '7-zonen-matratze' or current_url contains "7-zonen-matratze-doppeltuchbezug" or current_url contains "7-zonen-matratze-doppeltuch" %}
+  
+    {% section '7-zonen-matratze' %}  
+
+{% elsif current_url == 'babymatratze' or current_url contains "babymatratze" %}
+
+    {% section 'babymatratze' %}  
+
+{% elsif current_url == 'komfortschaummatratze' or current_url contains "komfortschaummatratze-jersey" %}
+
+    {% section 'komfortschaummatratze' %}  
+
+{% elsif current_url contains 'komfortschaummatratze-mikro'  %}
+
+    {% section 'komfortschaummatratze' %}  
+
+{% elsif current_url == 'kaltschaummatratze-haertegrad-h3' or current_url contains "kaltschaummatratze-h3" or current_url == "kaltschaummatratze-haertegrad-h2-h3" %}
+
+    {% section 'kaltschaummatratze-haertegrad-h3' %}  
+
+{% elsif current_url == 'kaltschaummatratze-haertegrad-h2-h3' %}
+
+    {% section 'kaltschaummatratze-haertegrad-h3' %}  
+
+{% elsif current_url == 'premium-matratze-haertegrad-h3-h4' %}
+
+    {% section 'premium-matratze-haertegrad-h3-h4' %}  
+
+{% elsif current_url == 'rollmatratze-mikrofaser-bezug' or current_url contains "7-zonen-matratze-mit-mikrofaserbezug" or current_url contains "7-zonen-matratze-mikrofaser" %}
+
+    {% section 'rollmatratze-mikrofaser-bezug' %}  
+
+{% elsif current_url == 'matratzentopper' or current_url contains "kaltschaum-topper-doppeltuchbezug" %}
+
+    {% section 'matratzentopper' %}  
+
+{% elsif current_url == 'orthopaedische-kissen' %}
+
+    {% section 'orthopaedische-kissen' %}  
+
+{% elsif current_url == 'viscokissen-aloe-vera' %}
+
+    {% section 'viscokissen-aloe-vera' %}  
+
+{% elsif current_url == 'kopfkissen' %}
+
+    {% section 'kopfkissen' %}  
+
+{% elsif current_url == 'nackenkissen' %}
+
+    {% section 'nackenkissen' %}  
+
+{% elsif current_url == 'nackenstuetzkissen' %}
+
+    {% section 'nackenstuetzkissen' %}  
+
+{% elsif current_url == 'visco-kissen' %}
+
+    {% section 'visco-kissen' %}  
+
+{% elsif current_url == 'visco-matratzentopper' or current_url contains "visco-topper-comfortbezug" %}
+
+    {% section 'visco-matratzentopper' %}  
+
+{% elsif current_url == 'mikrofaser-kopfkissen-80x80cm' %}
+    
+    {% section 'mikrofaser80x80kk' %}  
+
+{% elsif current_url == 'mikrofaser-kopfkissen-blau' or current_url contains 'mikrofaser-kopfkissen-blau'%}
+
+    {% section 'mikrofaser-kopfkissen-blau' %}  
+
+{% elsif current_url == 'wasserdichte-matratzenauflage' or current_url contains "matratzenauflage-tpu" %}
+
+    {% section 'wasserdichte-matratzenauflage' %}  
+
+{% elsif current_url == 'wasserundurchlassiger-baumwollschoner' or current_url contains "matratzenauflage-baumwolle" %}
+
+    {% section 'wasserundurchlassiger-baumwollschoner' %}  
+
+{% elsif current_url == 'matratzenauflage-tpu-set' %}
+
+    {% section 'matratzenauflage-tpu-set' %}  
+
+{% elsif current_url == 'wolldecke' or current_url contains "liara-bettdecke-4-jahreszeiten"  or current_url contains "liara-bettdecke-fruehling-herbst" or current_url contains "liara-bettdecke-sommer"%}
+ 
+
+    {% section 'wolldecke' %}  
+
+{% elsif current_url == 'anea-bettdecke' or current_url contains "anea-bettdecke" %}
+
+    {% section 'anea-bettdecke' %}  
+
+{% elsif current_url == 'serena-bettdecke' or current_url contains "serena-bettdecke" %}
+
+    {% section 'serena-bettdecke' %}  
+
+{% elsif current_url == 'mikrofaser-bettdecke-winter-sommer' or current_url contains "mikrofaser-bettdecke-4-jahreszeiten" or current_url contains "mikrofaser-bettdecke-winter"  or current_url contains "mikrofaser-bettdecke-sommer" %}
+  
+    {% section 'mikrofaser-bettdecke-winter-sommer' %}  
+    
+{% elsif current_url == 'mikrofaser-bettdecke' %}
+
+    {% section 'mikrofaser-bettdecke' %}  
+
+{% elsif current_url == 'mikrofaser-kopfkissen' or current_url == "mikrofaser-kopfkissen-50x50"  or current_url == "mikrofaser-kopfkissen-80x80" or current_url == "mikrofaser-kopfkissen-40x60" or current_url == "mikrofaser-kopfkissen-60x60" %}
+   
+    {% section 'mikrofaser-kopfkissen' %}  
+    
+{% elsif current_url == 'visco-kissen-1' %}
+
+    {% section 'visco-kissen-1' %}  
+    
+{% elsif current_url == 'visco-topper-mikrofaserbezug' or current_url contains "visco-topper-mikrofaserbezug" %}
+
+    {% section 'visco-topper-mikrofaserbezug' %}  
+    
+{% elsif current_url == 'kaltschaum-topper-mikrofaser' or current_url contains "kaltschaum-topper-mikrofaserbezug" %}
+
+    {% section 'kaltschaum-topper-mikrofaser' %}  
+    
+{% elsif current_url == 'kaltschaum-topper-comfortbezug' or current_url contains "kaltschaum-topper-comfortbezug"  %}
+
+    {% section 'kaltschaum-topper-comfortbezug' %}  
+
+{% elsif current_url == 'kissen-essential' or current_url contains "kissen-essential" %}
+
+    {% section 'kissen-essential' %}   
+
+{% elsif current_url == 'steppbett-mikrofaser'  or current_url contains "steppbett-mikrofaser-4-jahreszeiten" or current_url contains "steppbett-mikrofaser-sommer"  or current_url contains "steppbett-mikrofaser-winter" %}
+ 
+
+    {% section 'steppbett-mikrofaser' %}  
+    
+{% elsif current_url == 'gelschaummatratze' %}
+
+    {% section 'gelschaummatratze' %}  
+
+{% elsif current_url == 'lattenrost-basic' %}
+
+    {% section 'lattenrost-basic' %}  
+
+{% elsif current_url == 'gelschaum-topper' or current_url contains "gelschaum-topper-doppeltuchbezug" %}
+
+    {% section 'gelschaum-topper' %}  
+
+{% elsif current_url == 'gelschaum-topper-mk' or current_url contains "gelschaum-topper-mikrofaserbezug" %}
+
+    {% section 'gelschaum-topper-mk' %}  
+
+
+{% elsif current_url == 'gelschaummatratze-mit-premium-bezug' or current_url contains "gelschaummatratze-doppeltuch" %}
+
+    {% section 'gelschaummatratze-mit-premium-bezug' %}  
+
+{% elsif current_url == 'gelschaummatratze-comfort' or current_url contains "gelschaummatratze-premium-doppeltuchbezug" %}
+
+    {% section 'gelschaummatratze-comfort' %}  
+
+{% elsif current_url == 'gelschaummatratze-mikro' or current_url contains "gelschaummatratze-mikrofaserbezug" %}
+
+    {% section 'gelschaummatratze-mikro' %} //
+
+{% elsif current_url == 'gelschaumtopper-comfortbezug' or current_url contains "gelschaum-topper-premium" %}
+
+    {% section 'gelschaumtopper-comfortbezug' %}
+    
+{% endif %} 

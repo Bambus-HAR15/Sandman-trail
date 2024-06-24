@@ -1,0 +1,294 @@
+
+{% schema %}
+{
+	"name": "babymatratze",
+	"settings": [
+		
+		{
+			"type":"header",
+			"content":"Produktdetails",
+			"info":"In this block you can set the Produktdetails"
+		},
+		{
+			"type":"textarea",
+			"id":"babymatratze-textbloc-1",
+			"label":"babymatratze Text bloc 1"
+		},
+		{
+			"type":"header",
+			"content":"Lieferung & Versand",
+			"info":"In this block you can set the Lieferung & Versand content."
+		},
+		{
+			"type":"textarea",
+			"id":"babymatratze-textbloc-2",
+			"label":"babymatratze Text bloc 2"
+		},
+        {
+			"type":"header",
+			"content":"SecondText",
+			"info":"In this block you can set the content for the second block."
+		},
+		{
+			"type":"textarea",
+			"id":"babymatratze-textbloc-3",
+			"label":"babymatratze Text bloc 3"
+		},
+        {
+			"type":"text",
+			"id":"babymatratze-bloc2-imageurl-1",
+			"label":"babymatratze-Image-Url-1"
+		}
+
+
+
+	]
+}
+{% endschema %}
+{% assign current_domain = request.host %}
+{% assign current_url = product.url | replace: '/' | replace: 'products' %}   
+{% if current_url == 'babymatratze' or current_url contains "babymatratze" %}
+<style>
+  
+.topnav {
+  overflow: hidden;
+  padding-left: 60px;
+}
+
+.topnav button {
+  color: #1b1464;
+  padding: 10px 12px;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  font-size: 25px;
+  font-family: montserrat;
+  font-weight: 500;
+ 
+}
+
+.topnav button:hover {
+  border-bottom: 3px solid #1b1464;
+}
+
+.topnav button.active {
+  border-bottom: 3px solid #1b1464;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: white;
+}
+
+#bloc1 {
+  display: block;
+  position: relative;
+ left: 2%;
+ font-size: 18px;
+ //font-family: montserrat;
+ font-weight: normal;
+ color:#1e1664;
+ 
+}
+#bloc2 {
+ display: none;
+  position: relative;
+ left: 2%;
+ font-size: 18px;
+ //font-family: montserrat;
+ font-weight: normal;
+}
+  
+#bloc3 {
+ position: relative;
+ //font-family: montserrat;
+ font-weight: normal; 
+}
+  
+.picture {
+ position: relative;
+ left: 50%;
+}
+  
+  
+  
+.textContent{
+
+  font-size: 18px;
+
+} 
+  
+  
+  
+  
+
+.textContent{
+
+  width:40%;
+  height:30%;
+  position: relative;
+  left:4%;
+  bottom:-100px;
+ // font-family: montserrat;
+  font-weight: normal;
+}
+
+  <!-- change picture settings here -->
+.responsive {
+  width: 50%;
+  height: auto;
+} 
+  
+.pictureStatic {
+  position: relative;
+  left:60%;
+  top:-230px;
+  
+}
+
+  .staticBlock {
+  
+  height:700px;
+  
+  
+  }
+  
+  
+    
+@media (max-width: 1000px) {
+
+  
+  .pictureStatic {
+  position: relative;
+  left:0%;
+  top:200px;
+  
+}
+.responsive {
+  width: 100%;
+  height: auto;
+} 
+  
+.textContent{
+
+  width:100%;
+  height:30%;
+  position: relative;
+  left:4%;
+  bottom:-100px;
+  //font-family: montserrat;
+  font-weight: normal;
+}
+  
+  .topnav button {
+  color: white;
+  background-color: #1b1464;
+  border: 2px solid #1b1464;
+  padding: 5px 3px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-family: montserrat;
+  font-weight: 400;
+  margin-left: 5px;
+  margin-right: 10px;
+ 
+}
+  
+  .topnav {
+  overflow: hidden;
+  padding-left: 5px;
+}
+
+
+}
+ 
+</style>
+
+<hr>  
+<div class="topnav" id="myDIV">
+  <button class="btn active" id="Produktd" onclick="myFunction()">{% if current_domain == 'mister-sandman.fr' %} Détails du produit {% elsif current_domain == 'mistersandman.nl' %} Productgegevens {% else %} Produktdetails {% endif %}</button>
+  <button class="btn" id="lieferVers" onclick="myFunction2()">{% if current_domain == 'mister-sandman.fr' %} Livraison et expédition {% elsif current_domain == 'mistersandman.nl' %} Levering en verzending {% else %} Lieferung und Versand {% endif %}</button>
+</div>
+<hr>  
+<div id="bloc1" class="responsive-bloc stretch whole">
+ <!--{{ section.settings.haertegrad-h3-textbloc-1 }}-->
+{% if current_domain == 'mister-sandman.fr' %}
+<ul><h4> Caractéristiques et matériaux </h4><li>Matelas en mousse froide avec degré de fermeté H3 </li><li>Noyau du matelas avec 7 zones de couchage / zones corporelles. </li> <li>Gesamthöhe ca. 15 cm </li>  <li>Housse de matelas en tissu double de haute qualité (100% polyester), fermeture éclair, lavable jusqu'à 60 degrés. </li> <li>Matériaux respirants pour un climat de sommeil agréable </li> <li>Prêt à l'emploi 2 h après le déballage, livré sous forme de matelas à roulettes</li> </ul><br>
+{% elsif current_domain == 'mistersandman.nl' %}
+<ul><h4> Eigenschappen & materiaal </h4><li>Koudschuimmatras met hardheidsgraad H3 </li><li>Matraskern met 7 ligzones/lichaamszones.</li> <li>Totale hoogte ca. 15 cm</li>  <li>Matrashoes van hoogwaardige dubbele stof (100% polyester), met rits, wasbaar tot 60 graden </li> <li>Ademende materialen voor een aangenaam slaapklimaat </li> <li>Klaar voor gebruik 2 uur na uitpakken, geleverd als matras op rol</li> </ul><br>
+{% else %}
+<ul><h4> Eigenschaften & Material </h4><li>Kaltschaummatratze mit Härtegrad H3 </li><li>Matratzenkern mit 7 Liegezonen/Körperzonen. </li> <li>Gesamthöhe ca. 15 cm </li>  <li>Matratzenbezug aus hochwertigem Doppeltuch (100% Polyester),Reißverschluss, waschbar bei bis zu 60 Grad </li> <li>Atmungsaktive Materialien für ein angenehmes Schlafklima </li> <li>Einsatzbereit 2 h nach dem Auspacken, Lieferung als Rollmatratze</li> </ul><br>
+{% endif %}
+ </div>
+<div id="bloc2" class="responsive-bloc stretch whole">
+ <!--{{ section.settings.haertegrad-h3-textbloc-2 }}-->
+{% if current_domain == 'mister-sandman.fr' %}
+    <style>  .firstList {  position: relative;    height: 150px;  width: 27%;}  .secondList {  position: relative;  left: 30%;  top:-195px;  height: 150px;  width: 27%;}  .thirdList {  position: relative;  left: 65%;  top:-390px;  height: 150px;  width: 27%;}@media (max-width: 1000px) {.firstList {  position: relative;    height: auto;  width: 100%;}  .secondList {  position: relative;  left: 0%;  top:0px;  height: auto;  width: 100%;}  .thirdList {  position: relative;  left: 0%;  top:0px;  height: auto;  width: 100%;}}</style><div class=\"firstList\"><ul><h6>Délai de livraison</h6>   <li>Après réception de ton paiement, ta commande sera traitée dans les plus brefs délais. </li><br>  <li>Le délai de livraison indiqué sur la page du produit est constamment mis à jour afin de garantir une date de livraison aussi précise que possible.</li></ul></div><div class=\"secondList\">   <ul><h6>Expédition et retours</h6> <li>L'expédition est gratuite en Allemagne. </li><br><li>Pour les commandes en provenance d'autres pays européens, les frais d'expédition sont indiqués lors du processus d'achat. </li><br><li>Après réception de la marchandise, tu as un droit de retour de 14 jours. </li><br><li>Les frais de retour sont à la charge du client. </li><br><li>Notre équipe de service se tient à ta disposition pour t'aider à effectuer le retour.</li></ul></div>  <div class=\"thirdList\">   <ul> <h6>Emballage</h6><li> Ton nouveau matelas est livré roulé dans un sac de transport. Cela permet d'éviter les déchets d'emballage inutiles. Une fois emballé, le matelas est en outre très facile à transporter, car même les grandes tailles sont pliées et roulées.</li><br><li>Quelle que soit la taille, le paquet a toujours une hauteur de 100 cm. La taille de ton matelas est indiquée sur l'étiquette apposée sur l'emballage. </li><br><li>Le matelas atteint sa taille maximale 48 heures après le déballage.</li></ul></div>
+{% elsif current_domain == 'mistersandman.nl' %}
+<style>  .firstList {  position: relative;    height: 150px;  width: 27%;}  .secondList {  position: relative;  left: 30%;  top:-195px;  height: 150px;  width: 27%;}  .thirdList {  position: relative;  left: 65%;  top:-390px;  height: 150px;  width: 27%;}@media (max-width: 1000px) {.firstList {  position: relative;    height: auto;  width: 100%;}  .secondList {  position: relative;  left: 0%;  top:0px;  height: auto;  width: 100%;}  .thirdList {  position: relative;  left: 0%;  top:0px;  height: auto;  width: 100%;}}</style><div class=\"firstList\"><ul><h6>Levertijd</h6>   <li>Je bestelling wordt zo snel mogelijk na ontvangst van de betaling verwerkt. </li><br><li>De levertijd die op de productpagina wordt vermeld, wordt voortdurend bijgewerkt om een zo accuraat mogelijke leverdatum te garanderen.</li></ul></div><div class=\"secondList\">   <ul><h6>Verzending en retourneren</h6> <li>Verzending is gratis binnen Duitsland.</li><br><li>Voor bestellingen uit andere Europese landen worden de verzendkosten tijdens het aankoopproces weergegeven.</li><br><li>Je hebt een retourrecht van 14 dagen na ontvangst van de goederen. </li><br><li>De kosten voor de retourzending zijn voor rekening van de klant.</li><br><li>Ons serviceteam helpt je graag met de retourprocedure.</li></ul></div><div class=\"thirdList\">   <ul> <h6>Verpakking</h6><li> Ton nouveau matelas est livré roulé dans un sac de transport. Cela permet d'éviter les déchets d'emballage inutiles. Je nieuwe matras wordt opgerold in een transportzak geleverd. Dit voorkomt onnodig verpakkingsafval. Als de matras verpakt is, is hij ook heel gemakkelijk te vervoeren, want zelfs grote maten worden opgevouwen en opgerold.</li><br><li>Ongeacht de grootte is de verpakking altijd 100 cm hoog. De grootte van je matras staat vermeld op het label dat aan de verpakking bevestigd is. </li><br><li>De matras bereikt zijn volledige grootte maximaal 48 uur na het uitpakken.</li></ul></div>
+{% else %}
+<style>  .firstList {  position: relative;    height: 150px;  width: 27%;}  .secondList {  position: relative;  left: 30%;  top:-195px;  height: 150px;  width: 27%;}  .thirdList {  position: relative;  left: 65%;  top:-390px;  height: 150px;  width: 27%;}@media (max-width: 1000px) {.firstList {  position: relative;    height: auto;  width: 100%;}  .secondList {  position: relative;  left: 0%;  top:0px;  height: auto;  width: 100%;}  .thirdList {  position: relative;  left: 0%;  top:0px;  height: auto;  width: 100%;}}</style><div class=\"firstList\"><ul><h6>Lieferzeit</h6>   <li>Nach Zahlungseingang wird Deine Bestellung schnellstmöglich bearbeitet. </li><br>   <li>Die auf der Produktseite angegebene Lieferzeit wird ständig aktualisiert, um ein möglichst genaues Lieferdatum zu garantieren.</li></ul></div><div class=\"secondList\">   <ul><h6>Versand und Retoure</h6>      <li> Der Versand ist innerhalb Deutschlands kostenfrei. </li><br>      <li>Bei Bestellungen aus dem europäischen Ausland werden die Versandkosten während des Kaufvorgangs angezeigt.. </li><br>      <li>Nach Erhalt der Ware hast du ein 14-tägiges Rückgaberecht. </li><br>      <li>Die Kosten für die Retoure werden vom Kunden getragen. </li><br>      <li>Bei der Abwicklung der Rücksendung ist Dir unser Service-Team gerne behilflich.</li>   </ul>   </div>   <div class=\"thirdList\">   <ul> <h6>Verpackung</h6>      <li> Deine neue Matratze wird gerollt in einer Transporttüte geliefert. So wird unnötiger Verpackungsmüll vermieden. Im verpackten Zustand ist die Matratze außerdem sehr leicht zu transportieren, da auch große Größen gefalten und gerollt werden. </li><br>      <li>Das Paket ist, unabhängig von der Größe, immer 100 cm hoch. Die Größe Deiner Matratze ist auf dem an der Verpackung angebrachtem Etikett vermerkt. </li><br>      <li>Die Matratze erreicht max. 48h nach dem Auspacken ihre vollständige Größe.</li>   </ul> </div>
+{% endif %}
+</div> 
+<hr> 
+
+
+<div class="staticBlock">
+  <div class="textContent">
+    <p>
+      <!--{{ section.settings.babymatratze-textbloc-3 }} -->
+   {% if current_domain == 'mister-sandman.fr' %}
+    <div><h4>Matelas en mousse froide pour les plus petits</h4>Die Babymatratze von Mister Sandman ist nicht zu weich und nicht zu fest und somit optimal auf die Bedürfnisse von Babys und Kleinkindern angepasst. Die Babymatratze ist elastisch und passt sich der Babykörperform optimal an. Atmungsaktive Materialien sorgen für eine gute Luftzirkulation, abnehmbare und pflegeleichte Matratzenbezüge für eine sehr gute Betthygiene. Für ein rundum gutes Gefühl, ist diese Babymatratze auf Schadstoffe geprüft und Öko-Tex zertifiziert.</div>
+ {% elsif current_domain == 'mistersandman.nl' %}
+    <div><h4>Koudschuim matras voor de allerkleinsten</h4>Het babymatras van Mister Sandman is niet te zacht en niet te stevig en is daarom perfect aangepast aan de behoeften van baby's en peuters. Het babymatras is elastisch en past zich perfect aan de vorm van het lichaam van de baby aan. Ademende materialen zorgen voor een goede luchtcirculatie, terwijl afneembare en gemakkelijk te onderhouden matrashoezen zorgen voor een uitstekende bedhygiëne. Voor een algeheel goed gevoel is deze babymatras getest op schadelijke stoffen en Oeko-Tex gecertificeerd.</div>
+    {% else %}
+    <div><h4>Kaltschaummatratze für die Kleinsten</h4> Die Babymatratze von Mister Sandman ist nicht zu weich und nicht zu fest und somit optimal auf die Bedürfnisse von Babys und Kleinkindern angepasst. Die Babymatratze ist elastisch und passt sich der Babykörperform optimal an. Atmungsaktive Materialien sorgen für eine gute Luftzirkulation, abnehmbare und pflegeleichte Matratzenbezüge für eine sehr gute Betthygiene. Für ein rundum gutes Gefühl, ist diese Babymatratze auf Schadstoffe geprüft und Öko-Tex zertifiziert.</div>
+{% endif %} 
+  </p> 
+  </div>
+  <div class="pictureStatic">
+    <!--{{ section.settings.babymatratze-bloc2-imageurl-1 }}-->
+    <img src="https://cdn.shopify.com/s/files/1/1563/5705/files/Babymatratze_DT.jpg?v=1596111600" class="responsive" width="600" height="600">
+  </div>  
+</div>  
+
+<hr>
+
+<script>
+ var header = document.getElementById("myDIV");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}
+
+
+function myFunction() {
+   var x = document.getElementById('bloc1');
+   var y = document.getElementById('bloc2');
+    
+
+    x.style.display = 'block';
+    y.style.display = 'none';
+ 
+ 
+}
+
+function myFunction2() {
+
+    var x = document.getElementById('bloc2');
+    var y = document.getElementById('bloc1');
+
+    x.style.display = 'block';
+    y.style.display = 'none';
+
+  
+}
+</script>
+{% endif %}

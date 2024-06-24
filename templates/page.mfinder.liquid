@@ -1,0 +1,11 @@
+
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% if template == "page.mfinder" %}
+{{ 'mfinderdata.js' | asset_url | script_tag }}
+{{ 'mfinder.css' | asset_url | stylesheet_tag }}
+{{ 'mfinder.js' | asset_url | script_tag }}
+{% endif %}
+<div class="page-content rte">
+   {{ page.content }}
+</div>

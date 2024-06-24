@@ -1,0 +1,272 @@
+
+{% schema %}
+{
+	"name": "nackenkissen",
+	"settings": [
+		
+		{
+			"type":"header",
+			"content":"Produktdetails",
+			"info":"In this block you can set the Produktdetails"
+		},
+		{
+			"type":"textarea",
+			"id":"nackenkissen-textbloc-1",
+			"label":"nackenkissen Text bloc 1"
+		},
+
+
+		{
+			"type":"header",
+			"content":"Lieferung & Versand",
+			"info":"In this block you can set the Lieferung & Versand content."
+		},
+		{
+			"type":"textarea",
+			"id":"nackenkissen-textbloc-2",
+			"label":"nackenkissen Text bloc 2"
+		},
+        {
+			"type":"header",
+			"content":"SecondText",
+			"info":"In this block you can set the content for the second block."
+		},
+		{
+			"type":"textarea",
+			"id":"nackenkissen-textbloc-3",
+			"label":"nackenkissen Text bloc 3"
+		},
+        {
+			"type":"text",
+			"id":"nackenkissen-bloc2-imageurl-1",
+			"label":"nackenkissen-Image-Url-1"
+		}
+
+
+
+	]
+}
+{% endschema %}
+<style>
+  
+.topnav {
+  overflow: hidden;
+  padding-left: 60px;
+}
+
+.topnav button {
+  color: #1b1464;
+  padding: 10px 12px;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  font-size: 25px;
+  font-family: montserrat;
+  font-weight: 500;
+ 
+}
+
+.topnav button:hover {
+  border-bottom: 3px solid #1b1464;
+}
+
+.topnav button.active {
+  border-bottom: 3px solid #1b1464;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: white;
+}
+
+#bloc1 {
+  display: block;
+  position: relative;
+ left: 2%;
+ font-size: 18px;
+ font-family: montserrat;
+ font-weight: normal;
+ color:#1e1664;
+ 
+}
+#bloc2 {
+ display: none;
+  position: relative;
+ left: 2%;
+ font-size: 18px;
+ font-family: montserrat;
+ font-weight: normal;
+}
+  
+#bloc3 {
+ position: relative;
+ font-family: montserrat;
+ font-weight: normal; 
+}
+  
+.picture {
+ position: relative;
+ left: 50%;
+}
+  
+  
+  
+.textContent{
+
+  font-size: 18px;
+
+} 
+  
+  
+  
+  
+
+.textContent{
+
+  width:40%;
+  height:30%;
+  position: relative;
+  left:4%;
+  bottom:-100px;
+  font-family: montserrat;
+  font-weight: normal;
+
+}
+
+  <!-- change picture settings here -->
+.responsive {
+  width: 50%;
+  height: auto;
+} 
+  
+.pictureStatic {
+  position: relative;
+  left:60%;
+  top:-230px;
+  
+}
+
+  .staticBlock {
+  
+  height:700px;
+  
+  
+  }
+  
+    @media (max-width: 1000px) {
+
+   .staticBlock {
+  height:auto;
+  
+} 
+  .pictureStatic {
+  position: relative;
+  left:0%;
+  top:0px;
+  
+}
+.responsive {
+  width: 100%;
+  height: auto;
+} 
+  
+.textContent{
+
+  width:100%;
+  height:30%;
+  position: relative;
+  left:4%;
+  bottom:0px;
+  font-family: montserrat;
+  font-weight: normal;
+}
+  
+  .topnav button {
+  color: white;
+  background-color: #1b1464;
+  border: 2px solid #1b1464;
+  padding: 5px 3px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-family: montserrat;
+  font-weight: 400;
+  margin-left: 5px;
+  margin-right: 10px;
+ 
+}
+  
+  .topnav {
+  overflow: hidden;
+  padding-left: 5px;
+}
+
+
+}
+ 
+</style>
+
+<hr>  
+<div class="topnav" id="myDIV">
+  <button class="btn active" id="Produktd" onclick="myFunction()">Produktdetails</button>
+  <button class="btn" id="lieferVers" onclick="myFunction2()">Lieferung und Versand</button>
+</div>
+<hr>  
+<div id="bloc1" class="responsive-bloc stretch whole">
+ {{ section.settings.nackenkissen-textbloc-1 }}
+ </div>
+<div id="bloc2" class="responsive-bloc stretch whole">
+ {{ section.settings.nackenkissen-textbloc-2 }}
+</div> 
+<hr> 
+
+
+<div class="staticBlock">
+  <div class="textContent">
+    <p>
+      {{ section.settings.nackenkissen-textbloc-3 }} 
+    </p> 
+  </div>
+  <div class="pictureStatic">
+    <img src="{{ section.settings.nackenkissen-bloc2-imageurl-1 }}" class="responsive">
+  </div>  
+</div>  
+
+<hr>
+
+<script>
+ var header = document.getElementById("myDIV");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}
+
+
+function myFunction() {
+   var x = document.getElementById('bloc1');
+   var y = document.getElementById('bloc2');
+    
+
+    x.style.display = 'block';
+    y.style.display = 'none';
+ 
+ 
+}
+
+function myFunction2() {
+
+    var x = document.getElementById('bloc2');
+    var y = document.getElementById('bloc1');
+
+    x.style.display = 'block';
+    y.style.display = 'none';
+
+  
+}
+</script>

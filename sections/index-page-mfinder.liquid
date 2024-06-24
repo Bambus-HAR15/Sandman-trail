@@ -1,0 +1,114 @@
+{% schema %}
+{
+"name":"Matratzenfinder",
+"settings":[
+
+        {
+            "type":"text",
+            "id":"mfinder-text-1",
+            "label":"Text",
+            "info":"Zeile 1 auf mobile "
+        },{
+            "type":"text",
+            "id":"mfinder-text-2",
+            "label":"Text",
+            "info":"Zeile 2 auf mobile "
+        },{
+            "type":"text",
+            "id":"mfinder-text-3",
+            "label":"Text",
+            "info":"Zeile 3 auf mobile "
+        },{
+            "type":"text",
+            "id":"mfinder-button-text",
+            "label":"Button text"
+        },{
+            "type":"range",
+            "id":"mfinder-text-3-size",
+            "min":1,
+            "max":5,
+            "step":0.1,
+            "label":"3. Zeile font size",
+            "default":2
+        }
+    ]
+}
+{% endschema %}
+
+
+<div class="mfinder-wrapper responsive-container">
+    <hr>
+    <h2>
+        <span class="line">{{ section.settings.mfinder-text-1}}</span>
+        <span class="line">{{ section.settings.mfinder-text-2}}</span>
+        <span id="mfinder-font" class="line">{{ section.settings.mfinder-text-3}}</span>
+    </h2>
+    <input type="button" value="{{ section.settings.mfinder-button-text }}" onclick="location.href='https://www.mister-sandman.de/pages/matratzenfinder'">
+    <hr>
+</div>
+
+<style>
+
+.mfinder-wrapper span.line {
+  display: inline-block;
+}
+
+.mfinder-wrapper{
+    display:flex;
+    flex-direction: column;
+    align-items: center; 
+    font-size:1.2rem;
+}
+
+.mfinder-wrapper h2{
+    text-transform: none;
+    font-weight: 500;
+    text-align:center;
+}
+
+.mfinder-wrapper #mfinder-font{
+    font-family: "kaushan script";
+    font-weight:600;
+    font-size: {{ section.settings.mfinder-text-3-size }}rem;
+}
+
+.mfinder-wrapper input{
+    width: 11rem;
+    font-size: 0.7rem;
+    border-radius: 0;
+    height:2.6rem;
+    padding:0;
+    background-color:#ff6a5a;
+}
+
+.mfinder-wrapper hr{
+    border-top: 1px solid rgba(172, 172, 172, 0.521);
+    width: 100%;
+    margin-top:1rem;
+    margin-bottom:1rem;
+}
+@media (max-width:782px){
+    .mfinder-wrapper input{
+        font-size: 0.7rem !important;
+    }
+}
+
+@media (max-width:768px){
+
+}
+
+@media (max-width:480px){
+    .mfinder-wrapper h2{
+        font-size: 1.7rem;
+        line-height:1.2;
+    }
+
+
+
+    .mfinder-wrapper input {
+    width: 16rem;
+    font-size: 1rem !important;
+    height: 3rem;
+    }
+}
+</style>
