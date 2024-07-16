@@ -1,25 +1,9 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
-  <script>
-    window.Store = window.Store || {};
-    window.Store.id = {{ shop.id }};
-  </script>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
-
-    <title>
-      {{- shop.name -}}
-    </title>
-
-  
-
     {{ content_for_header }}
-
-    
-
-
-
   </head>
 
   <body class="template-{{ template | split: '.' | first }}">
@@ -27,7 +11,69 @@
       {{ content_for_layout }}
     </main>
 
-  
+   <!-- Cookie Consent Popup Structure -->
+    <div id="cookie-consent-popup" class="section">
+        <div id="main-section">
+            <div class="section-content">
+                <div class="front">
+                    <div class="head">
+                        <i class="bx bx-cookie icon rotate"></i>
+                        <h2 id="consent-title" style="font-size:25px; font-family: sans-serif;">Cookies-Zustimmung</h2>
+                    </div>
+                    <p id="consent-description" class="ft-content">Wir verwenden verschiedene Arten von Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Klicken Sie auf die untenstehenden Kategorien, um mehr über deren Zweck zu erfahren. Sie können wählen, welche Arten von Cookies Sie zulassen möchten. Denken Sie daran, dass die Deaktivierung von Cookies Ihre Erfahrung auf der Website beeinträchtigen kann.</p>
+                </div>
+                <div id="cookie-options" style="display: none;">
+                    <div class="leftDiv">
+                        <h4 id="settings-title" class="bk-title" >Ihre Cookie-Einstellungen</h4>
+                        <p id="settings-description"class="bk-content">Wir verwenden verschiedene Arten von Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Klicken Sie auf die untenstehenden Kategorien, um mehr über deren Zweck zu erfahren. Sie können wählen, welche Arten von Cookies Sie zulassen möchten. Denken Sie daran, dass die Deaktivierung von Cookies Ihre Erfahrung auf der Website beeinträchtigen kann.</p>
+                        <label class="mcui-checkbox">
+                            <input type="checkbox" id="essential-cookies">
+                            <div>
+                                <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+                                    <title>checkmark-circle</title>
+                                    <polyline points="7.57 15.87 12.62 21.07 23.43 9.93"></polyline>
+                                </svg>
+                            </div>
+                            <div id="essential" class="Adj-title" style="color: #034bf1;">Wesentliche (technische) Cookies</div>
+                        </label>
+                        <div id="essential-description" class="content">Notwendige (technische) Cookies tragen dazu bei, eine Website nutzbar zu machen, indem sie grundlegende Funktionen wie die Ansichtsnavigation und den Zugang zu sicheren Bereichen der Website ermöglichen. Ohne diese Cookies kann die Website nicht richtig funktionieren.</div>
+    
+                        <label class="mcui-checkbox">
+                            <input type="checkbox" id="analytics-cookies">
+                            <div>
+                                <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+                                    <title>checkmark-circle</title>
+                                    <polyline points="7.57 15.87 12.62 21.07 23.43 9.93"></polyline>
+                                </svg>
+                            </div>
+                            <div class="Adj-title" id="statistics">Statistik (analytische Cookies)</div>
+                        </label>
+                        <div id="analytics-description"class="content">Diese Cookies helfen uns zu verstehen, wie Besucher mit Websites interagieren, indem sie Informationen anonym sammeln und melden.</div>
+    
+                        <label class="mcui-checkbox">
+                            <input type="checkbox" id="marketing-cookies">
+                            <div>
+                                <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+                                    <title>checkmark-circle</title>
+                                    <polyline points="7.57 15.87 12.62 21.07 23.43 9.93"></polyline>
+                                </svg>
+                            </div>
+                            <div class="Adj-title" id="marketing">Cookies marketing (plugins sociaux, pixels)</div>
+                        </label>
+                        <div id="marketing-description" class="content">Marketing-Cookies werden verwendet, um Besucher über Websites hinweg zu verfolgen und ihnen Dinge zu zeigen, die für sie relevant und ansprechend sind, was sie für Herausgeber und Drittanbieter wertvoller macht.</div>
+                    </div>
+                   
+                </div>
+                <div class="Active-btn">
+                    <button id="accept-cookies" class="btn-sty option active">Alle Cookies akzeptieren</button>
+                    <button id="adjust-settings" class="btn-sty option">Einstellungen anpassen</button>
+                    <button id="refuse-cookies" class="btn-sty">Cookies ablehnen</button>
+                    <button id="accept-selected" class="btn-sty option accepted" style="display: none;">Ausgewählte akzeptieren</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
 
   </body>
