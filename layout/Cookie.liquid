@@ -12,24 +12,7 @@
       {{- shop.name -}}
     </title>
 
-    {% if page_description != blank %}
-      <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
-
-    {% render 'favicon' %}
-
-    <link rel="canonical" href="{{ canonical_url }}">
-    <meta name="viewport" content="width=device-width">
-
-    {% if template.suffix == '_quickshop' %}
-      <meta name="format-detection" content="telephone=no">
-    {% endif %}
-
-    {% assign x_handle = settings.social_x | split: 'x.com/' | last | split: 'twitter.com/' | last %}
-    {%
-      render 'social-meta-tags',
-      twitter_handle: x_handle,
-    %}
+  
 
     {{ content_for_header }}
 
