@@ -1,6 +1,69 @@
+
+<!-- sections/fade-in-out-text.liquid -->
+
+<div class="fade-text-container">
+  <div class="fade-text" id="fadeText1">CX kann innerhalb von 30 Tagen ab Lieferdatum mit dem Rücksendeetikett, das wir an CX senden, zurückgeben</div>
+  <div class="fade-text" id="fadeText2">Schlafen Sie ruhig, wir halten Ihnen den Rücken frei - Kostenloser Versand für alle unsere Produkte</div>
+  {% for block in section.blocks %}
+    <div class="fade-text">{{ block.settings.text }}</div>
+  {% endfor %}
+</div>
+
+<style>
+.fade-text-container {
+  position: relative;
+  height: 60px; /* Adjust height to fit text */
+  overflow: hidden;
+  background-color: #72477c; /* Background color */
+  color: white; /* Text color */
+}
+
+.fade-text {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  animation: fadeInOut 20s infinite; /* Adjusted duration for smoother transitions */
+  text-align: center;
+  font-size: 18px;
+  line-height: 65px; /* Adjust to vertically center text */
+}
+
+@keyframes fadeInOut {
+  0%, 33%, 100% { opacity: 0; }
+  5%, 28% { opacity: 1; }
+}
+
+.fade-text:nth-child(2) {
+  animation-delay: 10s; /* Adjust delay for timing */
+}
+
+.fade-text:nth-child(3) {
+  animation-delay: 20s; /* Add delay for additional text block */
+}
+</style>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Fade In/Out Text",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fade In/Out Text",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
