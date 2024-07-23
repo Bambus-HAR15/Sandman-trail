@@ -1,67 +1,156 @@
+<!-- sections/text-animation.liquid -->
 
-<!-- sections/fade-in-out-text.liquid -->
+{% comment %}
+Text Animation Section
+{% endcomment %}
 
-<div class="fade-text-container">
-  <div class="fade-text" id="fadeText1">CX kann innerhalb von 30 Tagen ab Lieferdatum mit dem Rücksendeetikett, das wir an CX senden, zurückgeben</div>
-  <div class="fade-text" id="fadeText2">Schlafen Sie ruhig, wir halten Ihnen den Rücken frei - Kostenloser Versand für alle unsere Produkte</div>
-  {% for block in section.blocks %}
-    <div class="fade-text">{{ block.settings.text }}</div>
-  {% endfor %}
-</div>
+<section class="home">
+  <div class="container">
+    <div class="row">
+      <div class="home-text">
+        <h1 style="font-size: 35px;">Mister Sandman</h1>
+        <p class="animate-text">
+          <span style="font-size: 20px;">Sleep easy, we've got your back - Free shipping on all our products.</span>
+          <span style="font-size: 20px;">CX can return within 30 days time period from the date of delivery using the return label we send to the CX.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <style>
-.fade-text-container {
-  position: relative;
-  height: 60px; /* Adjust height to fit text */
-  overflow: hidden;
-  background-color: #72477c; /* Background color */
-  color: white; /* Text color */
-}
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+  }
 
-.fade-text {
-  position: absolute;
-  width: 100%;
-  opacity: 0;
-  animation: fadeInOut 10s infinite; /* Adjusted duration for smoother transitions */
-  text-align: center;
-  font-size: 18px;
-  line-height: 65px; /* Adjust to vertically center text */
-}
+  * {
+    box-sizing: border-box;
+  }
 
-@keyframes fadeInOut {
-  0%, 33%, 100% { opacity: 0; }
-  5%, 28% { opacity: 1; }
-}
+  .container {
+    max-width: 1170px;
+    width: 100%;
+    margin: auto;
+  }
 
-.fade-text:nth-child(2) {
-  animation-delay: 5s; /* Adjust delay for timing */
-}
+  .home {
+    height: 100vh;
+    background-image: url({{ 'bg.jpg' | asset_url }}); /* Update this to your actual image path */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 15px;
+    position: relative;
+  }
 
-.fade-text:nth-child(3) {
-  animation-delay: 2s; /* Add delay for additional text block */
-}
+  .home::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+  }
+
+  .home .home-text {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .home .home-text h1 {
+    color: #ffffff;
+    font-size: 50px;
+    line-height: 56px;
+    font-weight: 700;
+    margin: 0 0 20px;
+  }
+
+  .home .home-text p {
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .home .home-text p span {
+    font-size: 40px;
+    color: #ff2c45;
+    font-weight: 700;
+    display: inline-block;
+    line-height: 46px;
+    display: none;
+  }
+
+  .home .home-text p span.text-in {
+    display: block;
+    animation: textIn 0.5s ease;
+  }
+
+  .home .home-text p span.text-out {
+    animation: textOut 0.5s ease;
+  }
+
+  @keyframes textIn {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  @keyframes textOut {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
 </style>
+
+<script>
+  const txts = document.querySelector(".animate-text").children,
+    txtsLen = txts.length;
+  let index = 0;
+  const textInTimer = 3000,
+    textOutTimer = 2800;
+
+  function animateText() {
+    for (let i = 0; i < txtsLen; i++) {
+      txts[i].classList.remove("text-in", "text-out");
+    }
+    txts[index].classList.add("text-in");
+
+    setTimeout(function () {
+      txts[index].classList.add("text-out");
+    }, textOutTimer);
+
+    setTimeout(function () {
+      if (index == txtsLen - 1) {
+        index = 0;
+      } else {
+        index++;
+      }
+      animateText();
+    }, textInTimer);
+  }
+
+  window.onload = animateText;
+</script>
 
 {% schema %}
 {
-  "name": "Fade In/Out Text",
+  "name": "Text Animation",
   "settings": [],
-  "blocks": [
-    {
-      "type": "text",
-      "name": "Text Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Text"
-        }
-      ]
-    }
-  ],
+  "blocks": [],
   "presets": [
     {
-      "name": "Fade In/Out Text",
+      "name": "Text Animation",
       "category": "Custom"
     }
   ]
