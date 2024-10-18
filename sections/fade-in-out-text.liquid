@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Animation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: relative;
+            height: 120px; /* Adjust height to fit text */
+            width: 100%;
+            overflow: hidden;
+            background-color: #72477c; /* Background color */
+            color: white; /* Text color */
+        }
+
+        .home {
+            height: 35vh;
+            background-image: url("{{ site.baseurl }}/images/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 50px 15px;
+            position: relative;
+        }
+
+        .home .home-text {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .home .home-text h1 {
+            color: #ececec;
+            font-size: 35px;
+            line-height: 56px;
+            font-weight: 700;
+            margin: 14px 0 -14px;
+        }
+
+        .home .home-text p {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .home .home-text p span {
+            font-size: 20px;
+            color: #b5b5bd;
+            font-weight: 700;
+            display: inline-block;
+            line-height: 46px;
+            display: none;
+        }
+
+        .home .home-text p span.text-in {
+            display: block;
+            animation: textIn .5s ease;
+        }
+
+        .home .home-text p span.text-out {
+            animation: textOut .5s ease;
+        }
+
+        @keyframes textIn {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(0%);
+            }
+        }
+
+        @keyframes textOut {
+            0% {
+                transform: translateY(0%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="home">
+        <div class="container">
+            <div class="row">
+                <div class="home-text">
+                    <h1>Mister Sandman</h1>
+                    <p class="animate-text">
+                        {% capture texts %}
+                            <span>Sleep easy, we've got your back - Free shipping on all our products.</span>
+                            <span>CX can return within 30 days time period from the date of delivery using the return label we send to the CX.</span>
+                        {% endcapture %}
+                        {{ texts | strip_newlines }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const txts = document.querySelector(".animate-text").children;
+            const txtsLen = txts.length;
+            let index = 0;
+            const textInTimer = 3000,
+                  textOutTimer = 2800;
+
+            function animateText() {
+                for (let i = 0; i < txtsLen; i++) {
+                    txts[i].classList.remove("text-in", "text-out");
+                }
+                txts[index].classList.add("text-in");
+
+                setTimeout(function () {
+                    txts[index].classList.add("text-out");
+                }, textOutTimer);
+
+                setTimeout(function () {
+                    index = (index === txtsLen - 1) ? 0 : index + 1;
+                    animateText();
+                }, textInTimer);
+            }
+
+            animateText();
+        });
+    </script>
+</body>
+</html>

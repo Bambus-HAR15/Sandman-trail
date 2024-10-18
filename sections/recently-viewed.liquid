@@ -1,3 +1,5 @@
+<!-- sections/recently-viewed-products.liquid -->
+
 <div id="recently-viewed-products">
   <h3>Recently Viewed Products</h3>
   <div class="product-grid" id="recently-viewed-products-grid">
@@ -32,6 +34,31 @@ document.addEventListener('DOMContentLoaded', function() {
           `;
           recentlyViewedProductsGrid.innerHTML += productHtml;
         });
+
+        if (recentlyViewedProducts.length > 4) {
+          // Initialize the carousel if more than 4 products
+          $('#recently-viewed-products-grid').slick({
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            responsive: [
+              {
+                breakpoint: 768,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1
+                }
+              },
+              {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+              }
+            ]
+          });
+        }
       }
     };
     xhr.send();
@@ -57,14 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 </style>
 
-
-
 {% schema %}
-  {
-    "name": "recently-viewed-products",
-    "settings": []
-  }
-
-  
+{
+  "name": "Recently Viewed Products",
+  "settings": []
+}
 {% endschema %}
-
